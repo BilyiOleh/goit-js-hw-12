@@ -16,3 +16,169 @@
 @import url('./badges.css');
 @import url('./back-link.css');
 @import url('./footer.css');
+
+.form {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 8px;
+  width: 371px;
+  margin: 36px auto 32px;
+}
+
+.form>label {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+
+  gap: 8px;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+.form input[type="text"] {
+  border: 1px solid #808080;
+  border-radius: 4px;
+  width: 272px;
+  height: 40px;
+
+  padding: 8px 16px;
+
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+
+  transition: border-color 250ms ease;
+
+  box-sizing: border-box;
+}
+
+.form input[type="text"]:hover {
+  border-color: #000;
+}
+
+.form input[type="text"]:focus {
+  outline: none;
+  border-color: #4e75ff;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 91px;
+  height: 40px;
+
+  background: #4e75ff;
+
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+
+  cursor: pointer;
+
+  transition: background-color 250ms ease;
+}
+
+button:hover {
+  background: #6c8cff;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #4e75ff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: block;
+  margin: 20px auto;
+  animation: rotation 1s linear infinite;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes rotation {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.load-more {
+  display: block;
+  margin: 32px auto;
+
+  padding: 8px 16px;
+
+  width: 125px;
+  height: 40px;
+
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  background: #4e75ff;
+  color: white;
+
+  transition: background-color 250ms ease;
+}
+
+.load-more:hover {
+  background: #6c8cff;
+}
+
+.hidden {
+  display: none;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+ 
+  margin-top: 32px;
+
+  list-style: none;
+
+  padding: 0;
+}
+.gallery-item {
+  width: 360px;
+  border: 1px solid #808080;
+}
+.gallery-image {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+
+  transition: transform 250ms ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.03);
+}
+
+.info {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+
+  justify-content: space-around;
+
+  padding: 8px;
+
+  text-align: center;
+
+  font-size: 12px;
+}
+
+.info b {
+  font-size: 14px;
+}
