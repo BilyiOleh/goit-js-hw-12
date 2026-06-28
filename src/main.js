@@ -24,6 +24,7 @@ const PER_PAGE = 15;
 let totalHits = 0;
 
 form.addEventListener("submit", handleSubmit);
+loadMoreBtn.addEventListener("click", loadMoreImages);
 
 async function handleSubmit(event) {
   event.preventDefault();
@@ -55,7 +56,6 @@ async function handleSubmit(event) {
           "Sorry, there are no images matching your search query. Please try again!",
         position: "topRight",
       });
-
       return;
     }
 
@@ -63,6 +63,14 @@ async function handleSubmit(event) {
 
     if (totalHits > PER_PAGE) {
       showLoadMoreButton();
+    } else {
+      hideLoadMoreButton();
+
+      iziToast.info({
+        message:
+          "We're sorry, but you've reached the end of search results.",
+        position: "topRight",
+      });
     }
   } catch (error) {
     iziToast.error({
@@ -76,11 +84,10 @@ async function handleSubmit(event) {
   form.reset();
 }
 
-loadMoreBtn.addEventListener("click", loadMoreImages);
-
 async function loadMoreImages() {
   currentPage++;
 
+  hideLoadMoreButton();
   showLoader();
 
   try {
@@ -98,6 +105,8 @@ async function loadMoreImages() {
           "We're sorry, but you've reached the end of search results.",
         position: "topRight",
       });
+    } else {
+      showLoadMoreButton();
     }
 
     const card = document.querySelector(".gallery-item");
@@ -108,17 +117,12 @@ async function loadMoreImages() {
       top: cardHeight * 2,
       behavior: "smooth",
     });
-
   } catch (error) {
-
     iziToast.error({
       message: error.message,
       position: "topRight",
     });
-
   } finally {
-
     hideLoader();
-
   }
 }
